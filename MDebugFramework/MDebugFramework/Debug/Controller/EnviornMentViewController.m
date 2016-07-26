@@ -24,13 +24,14 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                            target:self action:@selector(saveEnvironment:)];;
+    self.tableView.tableFooterView = [UIView new];
     [self configData];
 }
 
 - (void) configData {
     _curentIndex = [[MDebug sharedInstance] currentEnv];
     self.title = [[MDebug sharedInstance] currentEnvString];
-    self.data = @[@"online环境",@"prod环境",@"stage环境"];
+    self.data = @[@"online环境",@"prod环境",@"debug环境"];
     [self.tableView reloadData];
 }
 

@@ -12,6 +12,7 @@
 			buildConfigurationList = 6272E12B1CBE8A2100D15853 /* Build configuration list for PBXAggregateTarget "DebugAggregate" */;
 			buildPhases = (
 				6272E12E1CBE8A2600D15853 /* ShellScript */,
+				62ACB1B21D46EF6600180042 /* ShellScript */,
 			);
 			dependencies = (
 			);
@@ -360,7 +361,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "# Sets the target folders and the final framework product.\n# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME\n# 例如: FMK_NAME = \"MyFramework\"\nFMK_NAME=${PROJECT_NAME}\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n# -configuration ${CONFIGURATION}\n# Clean and Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"\n";
+		};
+		62ACB1B21D46EF6600180042 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# copy the framework to root product category\nFMK_NAME=${PROJECT_NAME}\nINSTALL_SOURCE_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\nINSTALL_TARGET_DIR=${SRCROOT}/../Products/${FMK_NAME}.framework\n# Cleaning the oldest.\nif [ -d \"${INSTALL_TARGET_DIR}\" ]\nthen\nrm -rf \"${INSTALL_TARGET_DIR}\"\nfi\nmkdir -p \"${INSTALL_TARGET_DIR}\"\ncp -R \"${INSTALL_SOURCE_DIR}/\" \"${INSTALL_TARGET_DIR}/\"\nrm -rf \"${INSTALL_TARGET_DIR}/_CodeSignature\"\nrm -rf \"${INSTALL_TARGET_DIR}/Modules\"\nopen \"${INSTALL_TARGET_DIR}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -597,6 +611,7 @@
 				6272E1291CBE8A0200D15853 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6272E12B1CBE8A2100D15853 /* Build configuration list for PBXAggregateTarget "DebugAggregate" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +620,7 @@
 				6272E12D1CBE8A2100D15853 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6272E1471CBE8A3500D15853 /* Build configuration list for PBXNativeTarget "testDebug" */ = {
 			isa = XCConfigurationList;
@@ -613,6 +629,7 @@
 				6272E1491CBE8A3500D15853 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

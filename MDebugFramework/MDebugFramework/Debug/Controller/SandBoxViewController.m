@@ -40,6 +40,7 @@ static NSString *viewControllers [] = {
         self.filePath = NSHomeDirectory();
     }
     [self configData];
+    self.tableView.tableFooterView = [UIView new];
     [self.tableView reloadData];
 }
 

@@ -20,6 +20,7 @@
     self.title = @"Debug";
     self.data = [NSMutableArray array];
     [self configData];
+    self.tableView.tableFooterView = [UIView new];
     [self.tableView reloadData];
 }
 

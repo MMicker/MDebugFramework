@@ -60,12 +60,13 @@
 }
 
 #pragma mark =======================
+
 - (MDebug_ENV_TYPE) currentEnv {
     NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:@"DEBUG_CURRENT_ENV_INDEX"];
     if (number) {
         return [number integerValue];
     }
-    return MDebug_ENV_STAGE;
+    return MDebug_ENV_ONLINE;
 }
 
 - (NSString *) currentEnvString {
@@ -77,7 +78,7 @@
             return @"prod环境";
             break;
         case MDebug_ENV_STAGE:
-            return @"stage环境";
+            return @"debug环境";
             break;
         default:
             break;
@@ -87,9 +88,20 @@
 
 #pragma mark =======================
 
+- (UIViewController *) parentViewController {
+    if (!_parentViewController) {
+        _parentViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    }
+    return _parentViewController;
+}
+
 - (IBAction) debugAction:(id)sender {
     DebugRootViewController *controller = [[DebugRootViewController alloc] init];
-    [self.parentViewController.navigationController pushViewController:controller animated:YES];
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController *)self.parentViewController pushViewController:controller animated:YES];
+    } else {
+        [self.parentViewController.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 - (UIView *) debugView {
