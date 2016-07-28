@@ -43,8 +43,10 @@
 
 - (IBAction) saveEnvironment:(id)sender {
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_curentIndex] forKey:@"DEBUG_CURRENT_ENV_INDEX"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     self.title = [[MDebug sharedInstance] currentEnvString];
     [self.tableView reloadData];
+    exit(0);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
