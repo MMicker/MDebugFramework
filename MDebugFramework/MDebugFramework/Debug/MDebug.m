@@ -46,9 +46,9 @@
     if (!_floatBallButton) {
         _floatBallButton = [FloatBallButton buttonWithType:UIButtonTypeCustom];
         _floatBallButton.MoveEnable = YES;
-        _floatBallButton.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 40, [[UIScreen mainScreen] bounds].size.width - 100, 40, 40);
+        _floatBallButton.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 44, [[UIScreen mainScreen] bounds].size.width - 100, 44, 44);
         [_floatBallButton setImage:[UIImage imageNamed:@"Debug.bundle/images/bug"] forState:UIControlStateNormal];
-        [_floatBallButton addTarget:self action:@selector(floatButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_floatBallButton addTarget:self action:@selector(floatButtonAction:) forControlEvents:UIControlEventTouchDownRepeat];
     }
     return _floatBallButton;
 }
@@ -115,7 +115,7 @@
     button.backgroundColor = [UIColor clearColor];
     button.adjustsImageWhenHighlighted = YES;
     [button setImage:[UIImage imageNamed:@"Debug.bundle/images/bug"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(debugAction:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(debugAction:) forControlEvents:UIControlEventTouchDownRepeat];
     return button;
 }
 

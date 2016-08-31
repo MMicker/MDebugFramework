@@ -71,25 +71,37 @@
     if (!_MoveEnable) {
         return;
     }
+    CGRect frame = self.frame;
     if (self.center.x >= self.superview.frame.size.width/2) {//向右侧移动
         //偏移动画
         CGSize size = [[UIScreen mainScreen] bounds].size;
+        frame.origin.x = size.width - frame.size.width;
+        frame.origin.y = self.center.y -frame.size.height/2;
         [UIView beginAnimations:@"move" context:nil];
         [UIView setAnimationDuration:0.5];
         [UIView setAnimationDelegate:self];
-        self.frame=CGRectMake(size.width - 40,self.center.y-20, 40.f,40.f);
+        
+        self.frame=frame;
         //提交UIView动画
         [UIView commitAnimations];
     }else{//向左侧移动
         [UIView beginAnimations:@"move" context:nil];
         [UIView setAnimationDuration:0.5];
         [UIView setAnimationDelegate:self];
-        self.frame=CGRectMake(0.f,self.center.y-20, 40.f,40.f);
+        
+        frame.origin.x = 0;
+        frame.origin.y = self.center.y -frame.size.height/2;
+        self.frame=frame;
         //提交UIView动画
         [UIView commitAnimations];
     }
     //不加此句话，UIButton将一直处于按下状态
     [super touchesEnded: touches withEvent: event];
 }
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+}
+
 
 @end
