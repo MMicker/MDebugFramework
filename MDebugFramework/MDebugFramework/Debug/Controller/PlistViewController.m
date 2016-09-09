@@ -36,8 +36,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIScrollView *) scrollView {
+    if (!_scrollView) {
+        CGRect rect = self.view.bounds;
+        _scrollView = [[UIScrollView alloc] initWithFrame:rect];
+    }
+    return _scrollView;
+}
+
 - (void) setSourcePath:(NSString *) sourcePath {
-    [self.view addSubview:self.label];
+//    [self.view addSubview:self.label];
     NSString *text = @"";
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:sourcePath];
     if ([NSJSONSerialization isValidJSONObject:dictionary]) {
@@ -50,14 +58,14 @@
     CGSize size =  [text boundingRectWithSize:CGSizeMake(rect.size.width, 200000)
                                       options:NSStringDrawingUsesLineFragmentOrigin
                                    attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;;
-    _label.frame = CGRectMake(0, 0, size.width, size.height);
+    self.label.frame = CGRectMake(0, 0, size.width, size.height);
     self.label.text = text;
 
     if (size.height < rect.size.height) {
         size.height = rect.size.height + 1;
     }
-    [self.scrollView setContentSize:size];
     [self.scrollView addSubview:self.label];
+    [self.scrollView setContentSize:size];
     [self.view addSubview:self.scrollView];
 
 }

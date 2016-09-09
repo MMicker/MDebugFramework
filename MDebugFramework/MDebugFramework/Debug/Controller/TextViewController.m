@@ -49,14 +49,13 @@
                                       options:NSStringDrawingUsesLineFragmentOrigin
                                    attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;;
     self.label.text = text;
-    
     _label.frame = CGRectMake(0, 0, size.width, size.height);
     
     if (size.height < rect.size.height) {
         size.height = rect.size.height + 1;
     }
-    [self.scrollView setContentSize:size];
     [self.scrollView addSubview:self.label];
+    [self.scrollView setContentSize:size];
     [self.view addSubview:self.scrollView];
 }
 
