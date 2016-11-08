@@ -28,9 +28,8 @@ typedef NS_ENUM (NSInteger , MDebugInvocationEvent) {
 } ;
 
 
-
 /*
- 股票涨跌颜色值发生变化时的通知
+ 当前环境值发生变化时的通知
  */
 FOUNDATION_EXPORT  NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION;
 
