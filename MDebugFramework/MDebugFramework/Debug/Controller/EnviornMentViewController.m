@@ -9,6 +9,9 @@
 #import "EnviornMentViewController.h"
 #import "MDebug.h"
 
+NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION = @"MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION";
+
+
 @interface EnviornMentViewController()
 @property (nonatomic, strong) NSArray *data;
 
@@ -45,6 +48,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_curentIndex] forKey:@"DEBUG_CURRENT_ENV_INDEX"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.title = [[MDebug sharedInstance] currentEnvString];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION object:nil];
     [self.tableView reloadData];
     exit(0);
 }

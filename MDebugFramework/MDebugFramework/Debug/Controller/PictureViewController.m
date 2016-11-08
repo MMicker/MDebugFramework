@@ -24,7 +24,7 @@
     if (!_imageView) {
         CGRect rect = self.view.bounds;
         _imageView = [[UIImageView alloc] initWithFrame:rect];
-        _imageView.backgroundColor = [UIColor redColor];
+        _imageView.backgroundColor = [UIColor clearColor];
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _imageView;
