@@ -13,9 +13,9 @@
  *  接口环境类型，业务方据此作具体的逻辑判断
  */
 typedef NS_ENUM(NSInteger , MDebug_ENV_TYPE) {
-    MDebug_ENV_ONLINE = 0,            //online env
-    MDebug_ENV_PROD,                  //prod env
-    MDebug_ENV_STAGE                  //stage env
+    MDebug_ENV_PROD = 0,                //online env
+    MDebug_ENV_STAGE,                   //stage env
+    MDebug_ENV_SIT,                     //sit env
 };
 
 /**

@@ -66,19 +66,19 @@
     if (number) {
         return [number integerValue];
     }
-    return MDebug_ENV_ONLINE;
+    return MDebug_ENV_PROD;
 }
 
 - (NSString *) currentEnvString {
     switch ([self currentEnv]) {
-        case MDebug_ENV_ONLINE:
-            return @"online环境";
-            break;
         case MDebug_ENV_PROD:
             return @"prod环境";
             break;
         case MDebug_ENV_STAGE:
-            return @"debug环境";
+            return @"stage环境";
+            break;
+        case MDebug_ENV_SIT:
+            return @"sit环境";
             break;
         default:
             break;
