@@ -15,6 +15,7 @@
 }
 
 @property (nonatomic, strong) FloatBallButton *floatBallButton;
+@property (nonatomic, strong) NSArray *allEnv;
 
 @end
 
@@ -28,6 +29,19 @@
         NSLog(@"当前环境是：%@", [instance currentEnvString]);
     });
     return instance;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+        NSBundle *manager = [NSBundle mainBundle];
+        NSString *documentsDirectory = [manager pathForResource:@"Debug.bundle/env" ofType:@"plist"];
+        NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:documentsDirectory];
+        self.allEnv = [data valueForKey:@"env"];
+    }
+    return self;
 }
 
 #pragma mark =======================
@@ -70,20 +84,11 @@
 }
 
 - (NSString *) currentEnvString {
-    switch ([self currentEnv]) {
-        case MDebug_ENV_PROD:
-            return @"prod环境";
-            break;
-        case MDebug_ENV_STAGE:
-            return @"stage环境";
-            break;
-        case MDebug_ENV_SIT:
-            return @"sit环境";
-            break;
-        default:
-            break;
+    NSInteger index = [self currentEnv];
+    if (index < 0 || index >= self.allEnv.count) {
+        return @"";
     }
-    return @"";
+    return [self.allEnv objectAtIndex:index];
 }
 
 #pragma mark =======================

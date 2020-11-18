@@ -36,6 +36,7 @@ FOUNDATION_EXPORT  NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATI
 @interface MDebug : NSObject 
 
 @property (nonatomic, weak) UIViewController *parentViewController;
+@property (nonatomic, strong, readonly) NSArray *allEnv;
 
 + (instancetype) sharedInstance;
 

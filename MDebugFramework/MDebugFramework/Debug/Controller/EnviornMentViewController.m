@@ -34,7 +34,7 @@ NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION = @"MDEBUG_ENVIR
 - (void) configData {
     _curentIndex = [[MDebug sharedInstance] currentEnv];
     self.title = [[MDebug sharedInstance] currentEnvString];
-    self.data = @[@"prod环境【线上】",@"stage环境【预发布】",@"sit环境【测试】"];
+    self.data = [MDebug sharedInstance].allEnv;
     [self.tableView reloadData];
 }
 
