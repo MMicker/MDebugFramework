@@ -54,6 +54,7 @@
     
     cell.textLabel.text = self.data[indexPath.row][@"name"];
     cell.detailTextLabel.text = self.data[indexPath.row][@"author"];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

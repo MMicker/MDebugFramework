@@ -71,6 +71,7 @@ NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION = @"MDEBUG_ENVIR
     NSString *value = self.data[indexPath.row];
     cell.accessoryType = (_curentIndex == indexPath.row) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.textLabel.text = value;
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
