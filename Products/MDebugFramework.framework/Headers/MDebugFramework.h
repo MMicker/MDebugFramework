@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char MDebugFrameworkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <MDebugFramework/PublicHeader.h>
 
 #import "MDebug.h"
+#import "MDebugTableViewCell.h"

@@ -8,6 +8,7 @@
 
 #import "EnviornMentViewController.h"
 #import "MDebug.h"
+#import "MDebugTableViewCell.h"
 
 NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION = @"MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION";
 
@@ -63,15 +64,14 @@ NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION = @"MDEBUG_ENVIR
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *dequeueReusableCellWithIdentifier = @"dequeueReusableCellWithIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dequeueReusableCellWithIdentifier];
+    MDebugTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dequeueReusableCellWithIdentifier];
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dequeueReusableCellWithIdentifier];
+        cell = [[MDebugTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dequeueReusableCellWithIdentifier];
     }
     
     NSString *value = self.data[indexPath.row];
     cell.accessoryType = (_curentIndex == indexPath.row) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.textLabel.text = value;
-    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

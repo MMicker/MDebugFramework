@@ -8,6 +8,7 @@
 
 #import "SandBoxViewController.h"
 #import "UIViewController+Path.h"
+#import "MDebugTableViewCell.h"
 
 static NSString *extentions [] = {
     @"plist",
@@ -35,7 +36,7 @@ static NSString *viewControllers [] = {
 @implementation SandBoxViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SANDBOX_CELL"];
+    [self.tableView registerClass:[MDebugTableViewCell class] forCellReuseIdentifier:@"SANDBOX_CELL"];
     if (!self.filePath) {
         self.filePath = NSHomeDirectory();
     }
@@ -55,7 +56,7 @@ static NSString *viewControllers [] = {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SANDBOX_CELL" forIndexPath:indexPath];
+    MDebugTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SANDBOX_CELL" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = self.data[indexPath.row];
     NSString *subPath = [self.filePath stringByAppendingPathComponent:self.data[indexPath.row]];

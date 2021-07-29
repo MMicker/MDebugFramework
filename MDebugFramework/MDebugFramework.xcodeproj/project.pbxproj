@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		623C8E3026B2524D009411BB /* MDebugTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 623C8E2E26B2524D009411BB /* MDebugTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		623C8E3126B2524D009411BB /* MDebugTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 623C8E2F26B2524D009411BB /* MDebugTableViewCell.m */; };
 		6272E1231CBE8A0200D15853 /* MDebugFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6272E1221CBE8A0200D15853 /* MDebugFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6272E1371CBE8A3500D15853 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6272E1361CBE8A3500D15853 /* main.m */; };
 		6272E13A1CBE8A3500D15853 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6272E1391CBE8A3500D15853 /* AppDelegate.m */; };
@@ -54,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		623C8E2E26B2524D009411BB /* MDebugTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDebugTableViewCell.h; sourceTree = "<group>"; };
+		623C8E2F26B2524D009411BB /* MDebugTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDebugTableViewCell.m; sourceTree = "<group>"; };
 		6272E11F1CBE8A0200D15853 /* MDebugFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDebugFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6272E1221CBE8A0200D15853 /* MDebugFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDebugFramework.h; sourceTree = "<group>"; };
 		6272E1241CBE8A0200D15853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				6272E18E1CBE8D6100D15853 /* FloatButton */,
 				6272E14C1CBE8A7500D15853 /* MDebug.h */,
 				6272E14D1CBE8A7500D15853 /* MDebug.m */,
+				623C8E2E26B2524D009411BB /* MDebugTableViewCell.h */,
+				623C8E2F26B2524D009411BB /* MDebugTableViewCell.m */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				6272E1701CBE8A7500D15853 /* DebugRootViewController.h in Headers */,
 				6272E17A1CBE8A7500D15853 /* PictureViewController.h in Headers */,
 				6272E1741CBE8A7500D15853 /* EnviornMentViewController.h in Headers */,
+				623C8E3026B2524D009411BB /* MDebugTableViewCell.h in Headers */,
 				6272E1821CBE8A7500D15853 /* UIViewController+Path.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +401,7 @@
 				6272E1751CBE8A7500D15853 /* EnviornMentViewController.m in Sources */,
 				6272E17F1CBE8A7500D15853 /* SandBoxViewController.m in Sources */,
 				6272E17D1CBE8A7500D15853 /* PlistViewController.m in Sources */,
+				623C8E3126B2524D009411BB /* MDebugTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

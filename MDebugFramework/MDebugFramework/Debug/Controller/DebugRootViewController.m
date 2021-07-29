@@ -7,6 +7,7 @@
 //
 
 #import "DebugRootViewController.h"
+#import "MDebugTableViewCell.h"
 
 @interface DebugRootViewController ()
 @property (nonatomic, strong) NSMutableArray *data;
@@ -46,15 +47,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *dequeueReusableCellWithIdentifier = @"dequeueReusableCellWithIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dequeueReusableCellWithIdentifier];
+    MDebugTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dequeueReusableCellWithIdentifier];
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:dequeueReusableCellWithIdentifier];
+        cell = [[MDebugTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:dequeueReusableCellWithIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     cell.textLabel.text = self.data[indexPath.row][@"name"];
     cell.detailTextLabel.text = self.data[indexPath.row][@"author"];
-    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
