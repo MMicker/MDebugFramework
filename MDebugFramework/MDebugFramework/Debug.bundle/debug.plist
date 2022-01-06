@@ -12,15 +12,25 @@
 		<key>version</key>
 		<string>1.0</string>
 	</dict>
-	<dict>
-		<key>name</key>
-		<string>查看沙盒</string>
-		<key>author</key>
-		<string>Micker</string>
-		<key>class</key>
-		<string>SandBoxViewController</string>
-		<key>version</key>
-		<string>1.0</string>
-	</dict>
+    <dict>
+        <key>name</key>
+        <string>查看沙盒</string>
+        <key>author</key>
+        <string>Micker</string>
+        <key>class</key>
+        <string>SandBoxViewController</string>
+        <key>version</key>
+        <string>1.0</string>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>查看UserDefaults</string>
+        <key>author</key>
+        <string>Micker</string>
+        <key>class</key>
+        <string>UserDefaultsViewController</string>
+        <key>version</key>
+        <string>1.0</string>
+    </dict>
 </array>
 </plist>
