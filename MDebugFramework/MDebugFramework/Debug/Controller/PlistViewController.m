@@ -7,6 +7,7 @@
 //
 
 #import "PlistViewController.h"
+#import "MDebugUtils.h"
 
 @interface PlistViewController ()
 @property (nonatomic, strong) UILabel *label;
@@ -48,6 +49,7 @@
 //    [self.view addSubview:self.label];
     NSString *text = @"";
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:sourcePath];
+    dictionary = [MDebugUtils makeJsonDictionary:dictionary];
     if ([NSJSONSerialization isValidJSONObject:dictionary]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];

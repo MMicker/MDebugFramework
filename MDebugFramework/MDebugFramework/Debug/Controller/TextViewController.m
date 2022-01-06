@@ -7,6 +7,7 @@
 //
 
 #import "TextViewController.h"
+#import "MDebugUtils.h"
 
 @interface TextViewController()
 
@@ -72,6 +73,7 @@
     
     NSString *text = @"";
     NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+    dictionary = [MDebugUtils makeJsonDictionary:dictionary];
     
     if ([NSJSONSerialization isValidJSONObject:dictionary]) {
         NSError *error;

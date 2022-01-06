@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6234EA872786CF920033D64D /* MDebugUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6234EA852786CF920033D64D /* MDebugUtils.h */; };
+		6234EA882786CF920033D64D /* MDebugUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6234EA862786CF920033D64D /* MDebugUtils.m */; };
 		623C8E3026B2524D009411BB /* MDebugTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 623C8E2E26B2524D009411BB /* MDebugTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		623C8E3126B2524D009411BB /* MDebugTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 623C8E2F26B2524D009411BB /* MDebugTableViewCell.m */; };
 		6272E1231CBE8A0200D15853 /* MDebugFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6272E1221CBE8A0200D15853 /* MDebugFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6234EA852786CF920033D64D /* MDebugUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDebugUtils.h; sourceTree = "<group>"; };
+		6234EA862786CF920033D64D /* MDebugUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDebugUtils.m; sourceTree = "<group>"; };
 		623C8E2E26B2524D009411BB /* MDebugTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDebugTableViewCell.h; sourceTree = "<group>"; };
 		623C8E2F26B2524D009411BB /* MDebugTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDebugTableViewCell.m; sourceTree = "<group>"; };
 		6272E11F1CBE8A0200D15853 /* MDebugFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDebugFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +208,8 @@
 				6272E1641CBE8A7500D15853 /* TextViewController.m */,
 				6272E1651CBE8A7500D15853 /* UIViewController+Path.h */,
 				6272E1661CBE8A7500D15853 /* UIViewController+Path.m */,
+				6234EA852786CF920033D64D /* MDebugUtils.h */,
+				6234EA862786CF920033D64D /* MDebugUtils.m */,
 			);
 			name = Sandbox;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 				6272E1841CBE8A7500D15853 /* FloatBallButton.h in Headers */,
 				6272E17E1CBE8A7500D15853 /* SandBoxViewController.h in Headers */,
 				6272E1231CBE8A0200D15853 /* MDebugFramework.h in Headers */,
+				6234EA872786CF920033D64D /* MDebugUtils.h in Headers */,
 				6272E1801CBE8A7500D15853 /* TextViewController.h in Headers */,
 				6272E1891CBE8AE900D15853 /* AudioViewController.h in Headers */,
 				6272E1701CBE8A7500D15853 /* DebugRootViewController.h in Headers */,
@@ -392,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6272E16B1CBE8A7500D15853 /* MDebug.m in Sources */,
+				6234EA882786CF920033D64D /* MDebugUtils.m in Sources */,
 				6272E1811CBE8A7500D15853 /* TextViewController.m in Sources */,
 				6272E1831CBE8A7500D15853 /* UIViewController+Path.m in Sources */,
 				6272E17B1CBE8A7500D15853 /* PictureViewController.m in Sources */,
