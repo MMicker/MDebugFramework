@@ -57,7 +57,6 @@ static NSString *viewControllers [] = {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDebugTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SANDBOX_CELL" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = self.data[indexPath.row];
     NSString *subPath = [self.filePath stringByAppendingPathComponent:self.data[indexPath.row]];
     BOOL directiory = NO;

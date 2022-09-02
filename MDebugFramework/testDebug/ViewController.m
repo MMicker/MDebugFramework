@@ -26,6 +26,9 @@
     
     [[MDebug sharedInstance] invocationEvent:MDebugInvocationEventBubble];
     
+    NSUserDefaults *live = [[NSUserDefaults alloc] initWithSuiteName:@"cn.aaa"];
+    [live setValue:@{@"jfodjj":@"fodjfodofjdof"} forKey:@"live"];
+    
     NSLog(@"NSHomeDirectory() = %@", NSHomeDirectory());
 }
 
