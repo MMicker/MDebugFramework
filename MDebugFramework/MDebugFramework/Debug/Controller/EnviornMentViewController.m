@@ -46,11 +46,15 @@ NSString * const MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION = @"MDEBUG_ENVIR
 
 
 - (IBAction) saveEnvironment:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_curentIndex] forKey:@"DEBUG_CURRENT_ENV_INDEX"];
+    [[NSUserDefaults standardUserDefaults] setObject:@(_curentIndex) forKey:@"DEBUG_CURRENT_ENV_INDEX"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.title = [[MDebug sharedInstance] currentEnvString];
     [[NSNotificationCenter defaultCenter] postNotificationName:MDEBUG_ENVIRONMENT_STATUS_CHANGED_NOTIFICATION object:nil];
     [self.tableView reloadData];
+//    [self performSelector:@selector(exitApp) withObject:nil afterDelay:1];
+}
+
+- (void) exitApp {
     exit(0);
 }
 
