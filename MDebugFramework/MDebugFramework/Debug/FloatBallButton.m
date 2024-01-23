@@ -74,8 +74,7 @@
     CGRect frame = self.frame;
     if (self.center.x >= self.superview.frame.size.width/2) {//向右侧移动
         //偏移动画
-        CGSize size = [[UIScreen mainScreen] bounds].size;
-        frame.origin.x = size.width - frame.size.width;
+        frame.origin.x = self.superview.frame.size.width - frame.size.width;
         frame.origin.y = self.center.y -frame.size.height/2;
         [UIView beginAnimations:@"move" context:nil];
         [UIView setAnimationDuration:0.5];

@@ -40,15 +40,38 @@
         NSString *documentsDirectory = [manager pathForResource:@"Debug.bundle/env" ofType:@"plist"];
         NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:documentsDirectory];
         self.allEnv = [data valueForKey:@"env"];
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deviceOrientationDidChanged:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
     }
     return self;
 }
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                  object:nil];
+}
+
+
+- (void)deviceOrientationDidChanged:(NSNotification *)notify{
+//    [self setViewOrientation];
+    CGRect btnFrame = _floatBallButton.frame;
+    if (btnFrame.origin.x > 100) {
+        _window = [UIApplication sharedApplication].delegate.window;
+        _floatBallButton.frame = CGRectMake(_window.bounds.size.width - 44, 120, 44, 44);
+    }
+}
+
 
 #pragma mark =======================
 
 - (void)invocationEvent:(MDebugInvocationEvent)invocationEvent{
     if (MDebugInvocationEventBubble == invocationEvent) {
-        _window = [[UIApplication sharedApplication] keyWindow];
+        _window = [UIApplication sharedApplication].delegate.window;
         [_window addSubview:self.floatBallButton];
     }
     if (MDebugInvocationEventNone == invocationEvent) {
@@ -60,7 +83,8 @@
     if (!_floatBallButton) {
         _floatBallButton = [FloatBallButton buttonWithType:UIButtonTypeCustom];
         _floatBallButton.MoveEnable = YES;
-        _floatBallButton.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 44, [[UIScreen mainScreen] bounds].size.width - 100, 44, 44);
+        _floatBallButton.layer.zPosition = 100000;
+        _floatBallButton.frame = CGRectMake(0, 120, 44, 44);
         [_floatBallButton setImage:[UIImage imageNamed:@"Debug.bundle/images/bug"] forState:UIControlStateNormal];
         [_floatBallButton addTarget:self action:@selector(floatButtonAction:) forControlEvents:UIControlEventTouchDownRepeat];
     }
@@ -95,7 +119,7 @@
 
 - (UIViewController *) parentViewController {
     if (!_parentViewController) {
-        _parentViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        _parentViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     }
     return _parentViewController;
 }
@@ -110,13 +134,7 @@
 }
 
 - (UIView *) debugView {
-    CGRect screenBound = [UIScreen mainScreen].bounds;
-    CGRect shortcutFrame;
-    shortcutFrame.size.width = 40.0f;
-    shortcutFrame.size.height = 40.0f;
-    shortcutFrame.origin.x = CGRectGetMaxX(screenBound)/2 - shortcutFrame.size.width/2;
-    shortcutFrame.origin.y = CGRectGetMaxY(screenBound) - shortcutFrame.size.height - 84.0f;
-    UIButton * button = [[UIButton alloc] initWithFrame:shortcutFrame];
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, 44, 44)];
     button.backgroundColor = [UIColor clearColor];
     button.adjustsImageWhenHighlighted = YES;
     [button setImage:[UIImage imageNamed:@"Debug.bundle/images/bug"] forState:UIControlStateNormal];
